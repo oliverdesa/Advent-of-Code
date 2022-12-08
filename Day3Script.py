@@ -1,24 +1,21 @@
-# Advent of code day 3 script
+from string import ascii_letters
 
-file = open('Rucksacks.txt', 'r')
-Rsacks = file.readlines()
-file.close()
+with open('Rucksacks.txt') as file:
+   data = [i for i in file.read().strip().split('\n')]
 
-Rsacks = [content.strip() for content in Rsacks]
 
-comp1 = []
-for sack in Rsacks:
-   comp2 = [sack[item] for item in range(int(len(sack)/2))]
-   comp1.append(comp2)
+totalSum = 0
+for rucksack in data:
+   half = len(rucksack)//2
+   
+   left = set(rucksack[:half])
+   right = set(rucksack[half:])
 
-#for sack in Rsacks:
-   #for item in range(int(len(sack)/2), len(sack)):
-      
-hits = []
-for index, sack in enumerate(Rsacks):
-   for item in enumerate(sack, start = int(len(sack)/2)):
-      presence = comp1[index].count(item[1])
-      
+   for priority, char in enumerate(ascii_letters):
+      if char in left and char in right:
+         totalSum += priority + 1
+
+print(totalSum)
 
 
 
