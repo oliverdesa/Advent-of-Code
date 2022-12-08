@@ -1,44 +1,69 @@
 # Advent of Code Day 2
-
+import numpy as np
+import pandas as pd
 
 
 puzzle = open('Day2Puzzle.txt', 'r')
 
 matches = puzzle.readlines()
 for match in range(len(matches)):
-    matches[match] = matches[match].strip('\n').split()
+     matches[match] = matches[match].strip('\n').split()
 
 puzzle.close()
 
-# Part 1
+# # Part 1
 
 def matchCalculator(opponent, mine):
-    if opponent == 'A':
-        if mine == 'X':
-            score = 1 + 3
-        elif mine == 'Y':
-            score = 2 + 6
-        else:
-            score = 3 + 0
-    if opponent == 'B':
-        if mine == 'X':
-            score = 1 + 0
-        elif mine == 'Y':
-            score = 2 + 3
-        else:
-            score = 3 + 6
-    if opponent == 'C':
-        if mine == 'X':
-            score = 1 + 6
-        elif mine == 'Y':
-            score = 2 + 0
-        else:
-            score = 3 + 3
-    return score
+     if opponent == 'A':
+         if mine == 'X':
+             score = 1 + 3
+         elif mine == 'Y':
+             score = 2 + 6
+         else:
+             score = 3 + 0
+     if opponent == 'B':
+         if mine == 'X':
+             score = 1 + 0
+         elif mine == 'Y':
+             score = 2 + 3
+         else:
+             score = 3 + 6
+     if opponent == 'C':
+         if mine == 'X':
+             score = 1 + 6
+         elif mine == 'Y':
+             score = 2 + 0
+         else:
+             score = 3 + 3
+     return score
 
-totalScore = 0
+##totalScore = 0
+# for match in range(len(matches)):
+#      score = matchCalculator(matches[match][0], matches[match][1])
+#      totalScore += score
+
+# Part 2
+#for match in range(len(matches)):
+        #matches[match] = [matches[match][0]]
+
+#print(matches)
+
+score = 0
+#def matchCreator(matches):
 for match in range(len(matches)):
-    score = matchCalculator(matches[match][0], matches[match][1])
-    totalScore += score
+    #print(matches[match][0])
+    if matches[match][0] == 'A':
+        score += 4
+        #matches[match].append('X')
+    elif matches[match][0] == 'B':
+        score += 1
+        #matches[match].append('X')
+    elif matches[match][0] == 'C':
+        score += 7
+        #matches[match].append('X')
 
-print(totalScore)
+print(score)
+# totalScore = 0
+# for match in range(len(matches)):
+#      score = matchCalculator(matches[match][0], matches[match][1])
+#      totalScore += score
