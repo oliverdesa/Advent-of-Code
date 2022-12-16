@@ -46,23 +46,3 @@ for match in range(len(matches)):
     totalScore += score
 
 print(totalScore)
-
-
-def strategy(opponent):
-    if opponent == 'A':
-       
-    if opponent == 'B':
-        if mine == 'X':
-            score = 1 + 0
-        elif mine == 'Y':
-            score = 2 + 3
-        else:
-            score = 3 + 6
-    if opponent == 'C':
-        if mine == 'X':
-            score = 1 + 6
-        elif mine == 'Y':
-            score = 2 + 0
-        else:
-            score = 3 + 3
-    return score
